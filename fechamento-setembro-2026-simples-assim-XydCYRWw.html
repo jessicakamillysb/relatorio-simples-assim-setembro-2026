@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fechamento Setembro 2026 — Simples Assim Atacado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa:#c4a1a2;--rosa-light:#f5edee;--rosa-dark:#9c7071;
+    --azul:#9DD9FF;--azul-light:#e8f7ff;--azul-dark:#4aafee;
+    --amarelo:#FEF2C9;--amarelo-dark:#c9a92a;
+    --verde:#CAE2C9;--verde-dark:#4a8a47;
+    --bg:#faf9f7;--surface:#fff;--border:#e8e4df;
+    --text:#1a1614;--muted:#7a6f6a;--nav-h:60px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);font-size:clamp(14px,1.8vw,16px);line-height:1.75}
+
+  nav{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1.5px solid var(--border);height:var(--nav-h);display:flex;align-items:center;padding:0 clamp(16px,4vw,48px);gap:clamp(12px,3vw,32px);overflow-x:auto;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(10px,1.4vw,13px);letter-spacing:.12em;text-transform:uppercase;color:var(--rosa-dark);white-space:nowrap;margin-right:auto;flex-shrink:0}
+  .nav-links{display:flex;gap:clamp(8px,2vw,24px);list-style:none;flex-shrink:0}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(9px,1.1vw,11px);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a.active{color:var(--rosa-dark);border-bottom-color:var(--rosa)}
+
+  main{max-width:1140px;margin:0 auto;padding:clamp(24px,5vw,64px) clamp(16px,4vw,40px)}
+  section{padding-top:calc(var(--nav-h) + 24px);margin-bottom:clamp(48px,8vw,96px)}
+
+  .hero{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:clamp(24px,5vw,56px);margin-bottom:clamp(32px,5vw,56px);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:0;right:0;width:320px;height:320px;background:radial-gradient(circle at 80% 20%,rgba(196,161,162,.15),transparent 70%);pointer-events:none}
+  .hero-label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(9px,1vw,10px);letter-spacing:.2em;text-transform:uppercase;color:var(--rosa-dark);margin-bottom:12px}
+  .hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(26px,5vw,52px);line-height:1.05;letter-spacing:-.02em;color:var(--text);margin-bottom:16px}
+  .hero h1 span{color:var(--rosa-dark)}
+  .hero p{max-width:640px;color:var(--muted);font-size:clamp(13px,1.5vw,15px);font-style:italic}
+  .hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .chip{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px;border:1.5px solid}
+  .chip-rosa{background:var(--rosa-light);color:var(--rosa-dark);border-color:var(--rosa)}
+  .chip-azul{background:var(--azul-light);color:#1a6fa0;border-color:var(--azul-dark)}
+  .chip-verde{background:var(--verde);color:var(--verde-dark);border-color:var(--verde-dark)}
+  .chip-amarelo{background:var(--amarelo);color:var(--amarelo-dark);border-color:var(--amarelo-dark)}
+
+  .section-header{margin-bottom:clamp(24px,4vw,40px)}
+  .section-number{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(9px,1vw,10px);letter-spacing:.2em;text-transform:uppercase;color:var(--rosa-dark);margin-bottom:8px}
+  .section-header h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(20px,3.5vw,34px);letter-spacing:-.02em;line-height:1.1;color:var(--text)}
+  .section-sub{color:var(--muted);font-style:italic;font-size:clamp(13px,1.4vw,15px);margin-top:8px}
+
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,16px);margin-bottom:clamp(24px,4vw,40px)}
+  @media(max-width:640px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+  .kpi-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:clamp(14px,2.5vw,22px);position:relative;overflow:hidden}
+  .kpi-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0}
+  .kpi-card.rosa::after{background:var(--rosa)}.kpi-card.azul::after{background:var(--azul-dark)}.kpi-card.amarelo::after{background:var(--amarelo-dark)}.kpi-card.verde::after{background:var(--verde-dark)}
+  .kpi-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(8px,.9vw,10px);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .kpi-value{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(18px,3vw,28px);letter-spacing:-.03em;color:var(--text);line-height:1;margin-bottom:6px}
+  .kpi-sub{font-family:'DM Mono',monospace;font-size:clamp(9px,.9vw,11px);color:var(--muted)}
+  .kpi-delta{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;padding:2px 8px;border-radius:100px;margin-top:6px}
+  .delta-up{background:var(--verde);color:var(--verde-dark)}.delta-down{background:var(--rosa-light);color:var(--rosa-dark)}.delta-warn{background:var(--amarelo);color:var(--amarelo-dark)}
+
+  .table-wrapper{overflow-x:auto;border:1.5px solid var(--border);border-radius:12px;margin-bottom:clamp(24px,4vw,40px)}
+  table{width:100%;border-collapse:collapse;min-width:520px;font-size:clamp(11px,1.2vw,13px)}
+  thead tr{background:#f2eeed}
+  th{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(8px,.9vw,10px);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:clamp(10px,1.5vw,14px) clamp(12px,1.8vw,18px);text-align:left;white-space:nowrap;border-bottom:1.5px solid var(--border)}
+  td{font-family:'Source Serif 4',serif;padding:clamp(9px,1.3vw,13px) clamp(12px,1.8vw,18px);border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:var(--bg)}
+  td.mono{font-family:'DM Mono',monospace;font-size:clamp(11px,1.1vw,12px)}
+  td.hl-rosa{background:var(--rosa-light);font-family:'Montserrat',sans-serif;font-weight:800}
+  td.hl-verde{background:var(--verde);font-family:'Montserrat',sans-serif;font-weight:800}
+  td.hl-amarelo{background:var(--amarelo);font-family:'Montserrat',sans-serif;font-weight:800}
+  td.hl-azul{background:var(--azul-light);font-family:'Montserrat',sans-serif;font-weight:800}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,20px);margin-bottom:clamp(24px,4vw,40px)}
+  .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px);margin-bottom:clamp(24px,4vw,40px)}
+  @media(max-width:640px){.two-col,.three-col{grid-template-columns:1fr}}
+
+  .card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:clamp(16px,2.5vw,24px)}
+  .card-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(12px,1.4vw,15px);color:var(--text);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .card-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--border);gap:8px}
+  .card-row:last-child{border-bottom:none}
+  .card-row-label{font-size:clamp(11px,1.2vw,13px);color:var(--muted);flex:1}
+  .card-row-val{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(11px,1.2vw,13px);color:var(--text);text-align:right;white-space:nowrap}
+
+  .insight-box{border-left:4px solid var(--rosa);background:var(--rosa-light);border-radius:0 10px 10px 0;padding:clamp(14px,2vw,20px) clamp(16px,2.5vw,24px);margin:clamp(16px,2.5vw,24px) 0}
+  .insight-box.azul{border-color:var(--azul-dark);background:var(--azul-light)}
+  .insight-box.verde{border-color:var(--verde-dark);background:var(--verde)}
+  .insight-box.amarelo{border-color:var(--amarelo-dark);background:var(--amarelo)}
+  .insight-label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(8px,.9vw,10px);letter-spacing:.15em;text-transform:uppercase;color:var(--rosa-dark);margin-bottom:6px}
+  .insight-box.azul .insight-label{color:#1a6fa0}.insight-box.verde .insight-label{color:var(--verde-dark)}.insight-box.amarelo .insight-label{color:var(--amarelo-dark)}
+  .insight-text{font-size:clamp(13px,1.4vw,15px);line-height:1.7;color:var(--text)}
+
+  .plan-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:clamp(16px,2.5vw,24px)}
+  .plan-number{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,5vw,48px);color:var(--border);line-height:1;margin-bottom:10px}
+  .plan-priority{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:10px}
+  .priority-alta{background:var(--rosa-light);color:var(--rosa-dark)}.priority-media{background:var(--azul-light);color:#1a6fa0}.priority-estrategica{background:var(--verde);color:var(--verde-dark)}.priority-urgente{background:var(--amarelo);color:var(--amarelo-dark)}
+  .plan-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(12px,1.4vw,15px);color:var(--text);margin-bottom:10px;line-height:1.3}
+  .plan-body{font-size:clamp(12px,1.3vw,14px);color:var(--muted);line-height:1.7}
+  .plan-impact{margin-top:12px;padding:10px 14px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(10px,1.1vw,11px);letter-spacing:.04em}
+  .impact-rosa{background:var(--rosa-light);color:var(--rosa-dark)}.impact-azul{background:var(--azul-light);color:#1a6fa0}.impact-verde{background:var(--verde);color:var(--verde-dark)}.impact-amarelo{background:var(--amarelo);color:var(--amarelo-dark)}
+
+  .bar-chart{display:flex;flex-direction:column;gap:10px}
+  .bar-row{display:grid;grid-template-columns:150px 1fr 130px;align-items:center;gap:10px}
+  @media(max-width:640px){.bar-row{grid-template-columns:78px 1fr 90px}}
+  .bar-label{font-size:clamp(11px,1.2vw,12px);color:var(--muted)}
+  .bar-track{height:8px;background:var(--border);border-radius:100px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:100px}
+  .bar-val{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(11px,1.2vw,12px);text-align:right}
+
+  .diag-card{border-radius:12px;padding:clamp(16px,2.5vw,24px);border:1.5px solid}
+  .diag-card.alert-rosa{background:var(--rosa-light);border-color:var(--rosa)}
+  .diag-card.alert-verde{background:var(--verde);border-color:var(--verde-dark)}
+  .diag-card.alert-azul{background:var(--azul-light);border-color:var(--azul-dark)}
+  .diag-card.alert-amarelo{background:var(--amarelo);border-color:var(--amarelo-dark)}
+  .diag-icon{font-size:20px;margin-bottom:10px}
+  .diag-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(12px,1.4vw,14px);margin-bottom:8px;color:var(--text)}
+  .diag-body{font-size:clamp(12px,1.3vw,14px);color:var(--muted);line-height:1.65}
+  .diag-body strong{font-weight:600;color:var(--text)}
+
+  .creative-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:clamp(16px,2.5vw,22px);display:flex;flex-direction:column;gap:10px}
+  .creative-rank{font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;width:24px;height:24px;border-radius:50%;background:var(--amarelo);color:var(--amarelo-dark);display:inline-flex;align-items:center;justify-content:center;margin-bottom:6px}
+  .creative-code{font-family:'DM Mono',monospace;font-size:clamp(13px,1.6vw,15px);font-weight:500;background:var(--bg);padding:6px 10px;border-radius:8px;border:1px solid var(--border);display:inline-block;color:var(--text)}
+  .creative-link{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#1a6fa0;text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-top:4px}
+  .creative-link:hover{text-decoration:underline}
+  .creative-tag{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;background:var(--verde);color:var(--verde-dark);display:inline-block;width:fit-content}
+
+  footer{border-top:1.5px solid var(--border);padding:clamp(24px,4vw,40px) clamp(16px,4vw,40px);text-align:center;max-width:1140px;margin:0 auto}
+  .footer-brand{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(10px,1.2vw,12px);letter-spacing:.2em;text-transform:uppercase;color:var(--rosa-dark);margin-bottom:8px}
+  .footer-note{font-family:'DM Mono',monospace;font-size:clamp(9px,1vw,11px);color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Simples Assim · Fechamento Setembro 2026</div>
+  <ul class="nav-links">
+    <li><a href="#visao-geral" class="active">Visão Geral</a></li>
+    <li><a href="#canais">Canais</a></li>
+    <li><a href="#semanas">Semanas</a></li>
+    <li><a href="#criativos">Criativos</a></li>
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#outubro">Plano de Outubro</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Fechamento Mensal · Simples Assim Atacado</div>
+    <h1>Setembro <span>2026</span><br>Fechamento &amp; Plano</h1>
+    <p>Resultado completo do mês, desempenho por canal, os criativos de destaque e as decisões definidas para outubro.</p>
+    <div class="hero-meta">
+      <span class="chip chip-amarelo">Receita do mês: R$ 147.985,15 (-36,9% vs julho)</span>
+      <span class="chip chip-verde">Lucro: R$ 23.949,78</span>
+      <span class="chip chip-azul">ROAS geral: 11,34×</span>
+      <span class="chip chip-amarelo">Outubro: verão + Google Ads + Black Friday</span>
+    </div>
+  </div>
+
+  <!-- ─── 01 VISÃO GERAL ─── -->
+  <section id="visao-geral">
+    <div class="section-header">
+      <div class="section-number">01 — Visão Geral do Mês</div>
+      <h2>Setembro fechado:<br>o resultado completo</h2>
+      <p class="section-sub">30 dias de dados. Margem de contribuição de 25% e ROAS mínimo de equilíbrio de 4,0× usados como referência de rentabilidade. O investimento do Meta inclui 12,15% de imposto (PIS/COFINS, valor aproximado).</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card amarelo">
+        <div class="kpi-label">Receita do mês</div>
+        <div class="kpi-value">R$ 148,0k</div>
+        <div class="kpi-sub">363 pedidos · 67.876 sessões</div>
+        <span class="kpi-delta delta-down">▼ -36,9% vs julho</span>
+      </div>
+      <div class="kpi-card amarelo">
+        <div class="kpi-label">Ticket médio</div>
+        <div class="kpi-value">R$ 407,67</div>
+        <div class="kpi-sub">Taxa de conversão geral: 0,53%</div>
+        <span class="kpi-delta delta-down">▼ conversão caiu de 0,68%</span>
+      </div>
+      <div class="kpi-card rosa">
+        <div class="kpi-label">Investimento total em mídia</div>
+        <div class="kpi-value">R$ 13,0k</div>
+        <div class="kpi-sub">Meta R$ 10.332,89 + imposto 12,15% R$ 1.255,45 + Google R$ 1.458,17</div>
+        <span class="kpi-delta delta-warn">▲ +11,8% vs julho (com imposto)</span>
+      </div>
+      <div class="kpi-card verde">
+        <div class="kpi-label">ROAS geral do mês</div>
+        <div class="kpi-value">11,34×</div>
+        <div class="kpi-sub">Mínimo de equilíbrio: 4,0×</div>
+        <span class="kpi-delta delta-up">▲ 2,8× acima do mínimo</span>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card verde">
+        <div class="kpi-label">Margem de contribuição (25%)</div>
+        <div class="kpi-value">R$ 37,0k</div>
+        <div class="kpi-sub">Sobre a receita total do mês</div>
+      </div>
+      <div class="kpi-card verde">
+        <div class="kpi-label">Lucro do mês</div>
+        <div class="kpi-value">R$ 23,9k</div>
+        <div class="kpi-sub">Margem − investimento em mídia</div>
+        <span class="kpi-delta delta-down">▼ margem líquida 16,18% (era 20,02% em julho, com imposto)</span>
+      </div>
+      <div class="kpi-card amarelo">
+        <div class="kpi-label">Melhor dia do mês</div>
+        <div class="kpi-value">R$ 15,4k</div>
+        <div class="kpi-sub">13/09 (domingo) · 30 pedidos · conversão 0,97%</div>
+      </div>
+      <div class="kpi-card rosa">
+        <div class="kpi-label">Pior dia do mês</div>
+        <div class="kpi-value">R$ 886,56</div>
+        <div class="kpi-sub">11/09 (sexta) · 3 pedidos · conversão 0,14%</div>
+      </div>
+    </div>
+
+    <div class="insight-box amarelo">
+      <div class="insight-label">Leitura do fechamento</div>
+      <div class="insight-text">
+        Setembro fechou com <strong>R$ 148,0 mil de receita e R$ 23,9 mil de lucro</strong> — uma queda de 36,9% na receita frente a julho. O ponto central do mês não foi tráfego: as sessões caíram apenas 12,5%, enquanto os pedidos caíram 31,6% e a taxa de conversão geral recuou de 0,68% para 0,53% (-22,1%). O investimento em mídia, por sua vez, <strong>subiu 11,8%</strong> no mesmo período (já contando o imposto do Meta nos dois meses), o que fez o ROAS geral cair de 20,08× para 11,34× — ainda 2,8 vezes acima do mínimo de equilíbrio, mas um sinal claro de que o gargalo está na conversão do site, não na quantidade de visitantes.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 02 CANAIS ─── -->
+  <section id="canais">
+    <div class="section-header">
+      <div class="section-number">02 — Desempenho por Canal</div>
+      <h2>Meta, Google e o tráfego<br>sem origem identificada</h2>
+      <p class="section-sub">Os dois canais pagos receberam mais investimento (Meta) ou operaram com retorno menor (Google) — em ambos os casos, o ROAS caiu frente a julho.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">Meta Ads — mês completo</div>
+        <div class="card-row"><span class="card-row-label">Investimento (inclui 12,15% de imposto)</span><span class="card-row-val">R$ 11.588,34</span></div>
+        <div class="card-row"><span class="card-row-label">Receita atribuída</span><span class="card-row-val">R$ 83.080,72</span></div>
+        <div class="card-row"><span class="card-row-label">ROAS</span><span class="card-row-val" style="color:var(--amarelo-dark)">7,17× <span style="font-size:10px;color:var(--muted);font-weight:400">(era 10,12× em jul)</span></span></div>
+        <div class="card-row"><span class="card-row-label">Sessões geradas</span><span class="card-row-val">11.777</span></div>
+        <div class="card-row"><span class="card-row-label">Pedidos</span><span class="card-row-val">202</span></div>
+        <div class="card-row"><span class="card-row-label">Custo por sessão</span><span class="card-row-val">R$ 0,98</span></div>
+        <div class="card-row"><span class="card-row-label">Custo por pedido</span><span class="card-row-val">R$ 57,37</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Google Ads — mês completo</div>
+        <div class="card-row"><span class="card-row-label">Investimento</span><span class="card-row-val">R$ 1.458,17</span></div>
+        <div class="card-row"><span class="card-row-label">Receita atribuída</span><span class="card-row-val">R$ 8.888,98</span></div>
+        <div class="card-row"><span class="card-row-label">ROAS</span><span class="card-row-val" style="color:var(--amarelo-dark)">6,10× <span style="font-size:10px;color:var(--muted);font-weight:400">(era 7,60× em jul)</span></span></div>
+        <div class="card-row"><span class="card-row-label">Sessões geradas</span><span class="card-row-val">8.320</span></div>
+        <div class="card-row"><span class="card-row-label">Pedidos</span><span class="card-row-val">22</span></div>
+        <div class="card-row"><span class="card-row-label">Custo por sessão</span><span class="card-row-val" style="color:var(--verde-dark)">R$ 0,18</span></div>
+        <div class="card-row"><span class="card-row-label">Custo por pedido</span><span class="card-row-val">R$ 66,28</span></div>
+      </div>
+    </div>
+
+    <!-- ORIGEM -->
+    <div class="card" style="margin-bottom:clamp(24px,4vw,40px)">
+      <div class="card-title">Participação de cada origem na receita do mês</div>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Meta Ads</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--rosa)"></div></div><div class="bar-val" style="color:var(--rosa-dark)">R$ 83,1k (56,1%)</div></div>
+        <div class="bar-row"><div class="bar-label">Não identificada</div><div class="bar-track"><div class="bar-fill" style="width:67.4%;background:var(--amarelo-dark)"></div></div><div class="bar-val" style="color:var(--amarelo-dark)">R$ 56,0k (37,9%)</div></div>
+        <div class="bar-row"><div class="bar-label">Google Ads</div><div class="bar-track"><div class="bar-fill" style="width:10.7%;background:var(--azul-dark)"></div></div><div class="bar-val" style="color:#1a6fa0">R$ 8,9k (6,0%)</div></div>
+      </div>
+    </div>
+
+    <div class="insight-box amarelo">
+      <div class="insight-label">Mais investimento, menos retorno</div>
+      <div class="insight-text">
+        O investimento em Meta subiu 28,3% frente a julho, mas a receita atribuída ao canal caiu 9,1% — o ROAS passou de 10,12× para 7,17× (nos dois meses com o imposto do Meta incluído). O Google teve o investimento reduzido em 44,7% e a receita caiu ainda mais, 55,6%. Em nenhum dos dois canais o problema é volume de verba: o custo por sessão segue baixo e estável, mas a sessão está convertendo menos — o mesmo padrão identificado na visão geral do mês. A fatia de receita sem origem identificada caiu de 52,4% em julho para 37,9% em setembro, mas ainda representa R$ 56,0 mil sem rastreamento, e esse ponto segue em aberto.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 03 SEMANAS ─── -->
+  <section id="semanas">
+    <div class="section-header">
+      <div class="section-number">03 — Evolução Semanal</div>
+      <h2>Como o mês se moveu<br>semana a semana</h2>
+      <p class="section-sub">A queda de conversão e ticket médio se concentrou nas semanas 2 e 3, com sinal de recuperação a partir da semana 4.</p>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead><tr><th>Semana</th><th>Receita</th><th>Pedidos</th><th>Sessões</th><th>Conversão</th><th>Ticket Médio</th><th>Invest. (c/ imposto)</th><th>ROAS</th></tr></thead>
+        <tbody>
+          <tr><td><strong>S1 (1–7 set)</strong></td><td class="hl-verde">R$ 41.273,25</td><td class="mono">94</td><td class="mono">16.670</td><td class="hl-verde">0,56%</td><td class="hl-verde">R$ 439,08</td><td class="mono">R$ 3.012,69</td><td class="hl-verde">13,70×</td></tr>
+          <tr><td><strong>S2 (8–14 set)</strong></td><td class="mono">R$ 33.973,50</td><td class="mono">80</td><td class="mono">16.741</td><td class="hl-rosa">0,48%</td><td class="mono">R$ 424,67</td><td class="mono">R$ 3.090,63</td><td class="mono">10,99×</td></tr>
+          <tr><td><strong>S3 (15–21 set)</strong></td><td class="hl-rosa">R$ 28.101,06</td><td class="hl-rosa">77</td><td class="mono">15.090</td><td class="mono">0,51%</td><td class="hl-rosa">R$ 364,95</td><td class="mono">R$ 2.986,43</td><td class="hl-rosa">9,41×</td></tr>
+          <tr><td><strong>S4 (22–28 set)</strong></td><td class="mono">R$ 34.197,73</td><td class="mono">82</td><td class="mono">14.271</td><td class="hl-verde">0,57%</td><td class="mono">R$ 417,05</td><td class="mono">R$ 3.004,05</td><td class="mono">11,38×</td></tr>
+          <tr><td><strong>S5 (29–30 set)</strong></td><td class="mono">R$ 10.439,61</td><td class="mono">30</td><td class="mono">5.104</td><td class="hl-verde">0,59%</td><td class="hl-rosa">R$ 347,99</td><td class="mono">R$ 952,71</td><td class="mono">10,96×</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-label">Leitura das semanas</div>
+      <div class="insight-text">
+        A semana 1 foi a melhor do mês em todos os indicadores (ROAS de 13,70×, conversão de 0,56%). A partir da semana 2 a conversão caiu e o ticket médio foi comprimido, chegando ao ponto mais baixo na semana 3 (R$ 364,95 de ticket médio, 0,51% de conversão). A semana 4 já mostra recuperação de conversão (0,57%, a maior do mês junto com a S5) e de ROAS (11,38×), mesmo com o ticket médio ainda abaixo do início do mês — um padrão coerente com o diagnóstico de conversão detalhado na seção 05.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 04 CRIATIVOS ─── -->
+  <section id="criativos">
+    <div class="section-header">
+      <div class="section-number">04 — Melhores Criativos do Mês</div>
+      <h2>Os 5 criativos<br>de melhor desempenho</h2>
+      <p class="section-sub">Selecionados pela equipe como os destaques de setembro — referência direta para a produção de outubro.</p>
+    </div>
+
+    <div class="three-col">
+      <div class="creative-card">
+        <span class="creative-rank">1</span>
+        <span class="creative-code">01_SA_0308</span>
+        <a class="creative-link" href="https://drive.google.com/file/d/1aGWzTQv5-b-rKu4TNZcJQnAKnt9BzM_u/view?usp=drive_link" target="_blank" rel="noopener">Ver criativo no Drive ↗</a>
+      </div>
+      <div class="creative-card">
+        <span class="creative-rank">2</span>
+        <span class="creative-code">07_SA_1202</span>
+        <a class="creative-link" href="https://drive.google.com/file/d/1yMv9JE5KSlcbHbh0cv3xnbednFvodCnV/view?usp=drive_link" target="_blank" rel="noopener">Ver criativo no Drive ↗</a>
+      </div>
+      <div class="creative-card">
+        <span class="creative-rank">3</span>
+        <span class="creative-code">02_SA_1808</span>
+        <a class="creative-link" href="https://drive.google.com/file/d/1xKnUKfID3pa2RawZ8JWse1Csv2mVgsmw/view?usp=drive_link" target="_blank" rel="noopener">Ver criativo no Drive ↗</a>
+      </div>
+      <div class="creative-card">
+        <span class="creative-rank">4</span>
+        <span class="creative-code">03_SA_1808</span>
+        <a class="creative-link" href="https://drive.google.com/file/d/1AQ6c7TgzZQY0N8BXR6hddqjSg9-ibJEt/view?usp=drive_link" target="_blank" rel="noopener">Ver criativo no Drive ↗</a>
+      </div>
+      <div class="creative-card">
+        <span class="creative-rank">5</span>
+        <span class="creative-code">02_SA_2811</span>
+        <a class="creative-link" href="https://drive.google.com/file/d/1HO40jXVfuPxTecKULF3cNaaVk_4qDCmu/view?usp=drive_link" target="_blank" rel="noopener">Ver criativo no Drive ↗</a>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-label">Como usar esses criativos em outubro</div>
+      <div class="insight-text">
+        Esses cinco formatos são o ponto de partida da produção de outubro: mesma linguagem visual e mesma estrutura de oferta que já provaram engajamento em setembro, adaptados para os produtos de verão e com os criativos de Google Ads renovados a partir da mesma referência.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 05 DIAGNÓSTICO DE CONVERSÃO ─── -->
+  <section id="diagnostico">
+    <div class="section-header">
+      <div class="section-number">05 — Diagnóstico de Conversão do Site</div>
+      <h2>Por que a sessão<br>converte menos</h2>
+      <p class="section-sub">A loja já tem pontos fortes — carregamento em 2,6 segundos e fotos consistentes — mas perde vendas em pontos de confiança e de descoberta que são rápidos de corrigir.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="diag-card alert-rosa">
+        <div class="diag-icon">🔍</div>
+        <div class="diag-title">SEO em situação crítica</div>
+        <div class="diag-body">Meta description vazia, título com apenas 21 caracteres ("Simples Assim Atacado", sem termos como "moda feminina atacado"), 11 imagens sem descrição e ausência de tags Open Graph. O resultado é que clientes que buscam "moda feminina atacado" no Google não encontram a loja com facilidade — a sessão nem chega a acontecer.</div>
+      </div>
+      <div class="diag-card alert-amarelo">
+        <div class="diag-icon">💬</div>
+        <div class="diag-title">Contatos de WhatsApp confundindo o cliente</div>
+        <div class="diag-body"><strong>3 números de WhatsApp diferentes</strong> espalhados entre corpo da página, rodapé e botão flutuante, além de um link de grupo que compete diretamente com os botões de compra na página inicial, desviando quem já está pronto para comprar.</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="diag-card alert-rosa">
+        <div class="diag-icon">⭐</div>
+        <div class="diag-title">Falta de prova social</div>
+        <div class="diag-body">Sem avaliações em destaque nos produtos e sem selos de confiança próximos aos botões de compra. Cerca de 81% dos brasileiros leem avaliações de terceiros antes de comprar, e 48% consultam o Reclame Aqui, então vale deixar a reputação da loja visível no próprio site.</div>
+      </div>
+      <div class="diag-card alert-amarelo">
+        <div class="diag-icon">📱</div>
+        <div class="diag-title">Filtros prejudicam a navegação no mobile</div>
+        <div class="diag-body">Na página de categoria, os filtros ocupam quase toda a tela no celular, empurrando os produtos para baixo e exigindo scroll adicional logo na primeira impressão — justamente onde a maior parte do tráfego de mídia paga chega.</div>
+      </div>
+    </div>
+
+    <div class="insight-box verde">
+      <div class="insight-label">O social proof que já existe e está sendo pouco usado</div>
+      <div class="insight-text">
+        A loja já tem o maior ativo de confiança possível para o público de revendedoras: <strong>76 mil lojistas atendidas em 27 estados e 12 países desde 2019</strong>. Esse número hoje não aparece com destaque na home nem nas páginas de produto — colocá-lo em evidência, junto com avaliações reais, é o caminho mais rápido para compensar a ausência de prova social apontada acima.
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06 OUTUBRO ─── -->
+  <section id="outubro">
+    <div class="section-header">
+      <div class="section-number">06 — Plano de Outubro</div>
+      <h2>As três frentes<br>definidas para o mês</h2>
+      <p class="section-sub">Criativos de verão, renovação do Google Ads, estruturação antecipada da Black Friday.</p>
+    </div>
+
+    <div class="three-col">
+      <div class="plan-card">
+        <div class="plan-number">01</div>
+        <span class="plan-priority priority-media">Criativos</span>
+        <div class="plan-title">Focar a produção de criativos nos produtos de verão</div>
+        <div class="plan-body">
+          Produção usando os cinco destaques de setembro como referência de formato e oferta, já adaptados para a coleção de verão. A troca de estação é o momento certo para renovar o banco de criativos e testar novos ângulos.
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-number">02</div>
+        <span class="plan-priority priority-media">Google Ads</span>
+        <div class="plan-title">Renovar os criativos de Google Ads</div>
+        <div class="plan-body">
+          O Google foi o canal com queda mais acentuada no mês (receita -55,6%) mesmo com corte de investimento. Atualizar os criativos de performance com o material de verão é o ponto de partida antes de qualquer decisão sobre reduzir ou retomar o investimento no canal.
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-number">03</div>
+        <span class="plan-priority priority-estrategica">Black Friday</span>
+        <div class="plan-title">Iniciar o planejamento da Black Friday</div>
+        <div class="plan-body">
+          Estruturar com antecedência: ofertas por faixa de pedido mínimo (contexto B2B), cronograma de criativos e calendário de divulgação. Começar em outubro dá tempo de testar peças e ângulos de oferta antes do pico de novembro.
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box verde">
+      <div class="insight-label">Resumo do plano de outubro</div>
+      <div class="insight-text">
+        Três frentes definidas: <strong>produzir criativos de verão</strong> usando os destaques de setembro como base, <strong>renovar o Google Ads</strong> com o mesmo material e <strong>iniciar o planejamento da Black Friday</strong> com antecedência.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">Simples Assim Atacado — Fechamento Setembro 2026</div>
+  <div class="footer-note">Fonte: Acompanhamento Diário do Site (01–30/09/2026, mês completo) · Comparações com Fechamento de Julho 2026 · Investimento do Meta com 12,15% de imposto (PIS/COFINS, aprox.), também aplicado ao julho nas comparações<br>Elaborado por Jéssica Kamilly Santos Borges · Outubro 2026 · Confidencial</div>
+</footer>
+
+<script>
+  const sections=document.querySelectorAll('section[id]');
+  const navLinks=document.querySelectorAll('.nav-links a');
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.remove('active'));const l=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');if(l)l.classList.add('active');}});},{rootMargin:'-60px 0px -60% 0px',threshold:0});
+  sections.forEach(s=>obs.observe(s));
+  navLinks.forEach(a=>{a.addEventListener('click',ev=>{ev.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});});
+</script>
+</body>
+</html>
